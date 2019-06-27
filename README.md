@@ -16,7 +16,7 @@ These figures shows the comparison of the predicted PDE solution from our deep R
 ![2d_ex1](https://user-images.githubusercontent.com/30219043/60241221-c2073980-9880-11e9-9418-f9e0c1743161.jpg)
 ![2d_ex2](https://user-images.githubusercontent.com/30219043/60241222-c2073980-9880-11e9-9311-cd7beacab1d7.jpg)
 
-More experiments and results can be found in our paper at 
+More experiments and results can be found in our paper at - 
 ### **Link for the paper:**
 https://arxiv.org/abs/1902.05200
 
