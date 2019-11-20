@@ -1,0 +1,17 @@
+Data file used to train this DNN:
+Train data-
+'data_2d_spde_prob/train_merged_nx1=32_nx2=32.npy'
+Test data-
+'data_2d_spde_prob/test_merged_nx1=32_nx2=32.npy'
+
+
+DNN architecture:
+DNN type = Resnet
+Number of neurons in each block -n=500
+Number of blocks -num_block=2
+Number of dense layers in each block=2
+
+
+To run:
+python 2d_spde.py -train_data='train_merged_nx1=32_nx2=32.npy' -test_data='test_merged_nx1=32_nx2=32.npy' -nx1=32 -nx2=32 -DNN_type='Resnet' -n=500 -num_block=2 -act_func='swish' -loss_type='EF' -lr=0.0001 -max_it=75000 -M_A=100 -M_x=20 -seed=2
+

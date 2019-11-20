@@ -1,0 +1,17 @@
+Data file used to train this DNN:
+Train data-
+'data_2d_spde_prob/train_channel_nx1=32_nx2=32_num_samples=4096.npy'
+Test data-
+'data_2d_spde_prob/test_channel_nx1=32_nx2=32_num_samples=512.npy'
+
+
+DNN architecture:
+DNN type = Resnet
+Number of neurons in each block -n=300
+Number of blocks -num_block=3
+Number of dense layers in each block=2
+
+
+To run:
+python 2d_spde.py -train_data='train_channel_nx1=32_nx2=32_num_samples=4096.npy' -test_data='test_channel_nx1=32_nx2=32_num_samples=512.npy' -nx1=32 -nx2=32 -DNN_type='Resnet' -n=300 -num_block=3 -act_func='swish' -loss_type='EF' -lr=0.0001 -max_it=75000 -M_A=100 -M_x=20 -seed=0
+

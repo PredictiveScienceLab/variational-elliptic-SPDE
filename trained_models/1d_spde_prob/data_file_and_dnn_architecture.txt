@@ -1,0 +1,18 @@
+Data file used to train this DNN:
+Train data-
+'data_1d_spde_prob/train_exp_nx=100_lx=0.03_v=1.0_num_samples=10000.npy'
+Test data-
+'data_1d_spde_prob/test_exp_nx=100_lx=0.03_v=1.0_num_samples=1000.npy'
+
+
+DNN architecture:
+DNN type = Resnet
+Number of neurons in each block -n=400
+Number of blocks -num_block=3
+Number of dense layers in each block=2
+
+
+To run:
+python 1d_spde.py -train_data='train_exp_nx=100_lx=0.03_v=1.0_num_samples=10000.npy' -test_data='test_exp_nx=100_lx=0.03_v=1.0_num_samples=1000.npy' -nx=100 -DNN_type='Resnet' -n=400 -num_block=3 -act_func='swish' -loss_type='EF' -lr=0.0001 -max_it=80000 -M_A=100 -M_x=15 -seed=4
+
+   
