@@ -6,7 +6,7 @@ Our paper proposes a novel deep neural network (DNN) based solver for elliptic s
 
 #### The novel features of our approach are:
 
-1.	Our method is simulator-free i.e.liberated from the requirement of a deterministic forward solver unlike the existing approaches. 
+1.	Our method is simulator-free i.e. liberated from the requirement of a deterministic forward solver unlike the existing approaches. 
 2.	The DNN is trained by minimizing a physics-informed loss function obtained from deriving a variational principle for the elliptic SPDE. 
 
 The significance of the proposed approach is that it overcomes a fundamental limitation of existing state-of-the-art methodologies – it eliminates the requirement of a numerical solver for the deterministic forward problem whose individual evaluations are potentially very expensive. The proposed methodology is easy to implement and scalable to cases where the uncertain input data is characterized by large stochastic dimensionality. We demonstrate our solver-free approach through various examples where the elliptic SPDE is subjected to different types of high-dimensional input uncertainties. Also, we solve high-dimensional uncertainty propagation and inverse problems.
@@ -15,10 +15,11 @@ The significance of the proposed approach is that it overcomes a fundamental lim
 <img width="244" alt="Resnet_schematic" src="https://user-images.githubusercontent.com/30219043/69242800-a8d49180-0b6f-11ea-840f-75450e8027aa.png">
 
 ### Results:
-These figures shows the comparison of the predicted SPDE solution from our deep ResNets trained and a standard finite volume method (FVM) solver for randomly sampled realizations of the input field.  
-2D Warped Gaussian Random Field length-scales of 0.05, 0.08
+These figures shows the comparison of the predicted SPDE solution from our trained deep ResNets and a standard finite volume method (FVM) solver for randomly sampled realizations of the input field.  
+
+2D Gaussian Random Field (GRF) of length-scales 0.05, 0.08
 ![test_case=6_journal-page-001](https://user-images.githubusercontent.com/30219043/69241808-90fc0e00-0b6d-11ea-8b87-0a36d3ca2be9.jpg)
-2D Warped Gaussian Random Field
+2D Warped GRF
 ![test_case=25_journal-page-001](https://user-images.githubusercontent.com/30219043/69241842-a07b5700-0b6d-11ea-8422-9c4fea7aba61.jpg)
 2D Channelized Field
 ![test_case=29_journal-page-001](https://user-images.githubusercontent.com/30219043/69241873-ae30dc80-0b6d-11ea-8be3-e7ea83acf6bd.jpg)
@@ -33,10 +34,11 @@ git clone https://github.com/PredictiveScienceLab/variational-elliptic-SPDE.git
 cd variational-elliptic-SPDE
 ```
 ### Data:
-All the input datasets used in the paper such as one dimensional and two dimensional gaussian random fields (GRF) - 2D GRF, Warped GRF, Channelized field and Multiple lengthscales GRF etc to train the deep resnet approximator can be downloaded from link at [/data/link_to_data.txt](https://github.com/PredictiveScienceLab/variational-elliptic-SPDE/blob/master/data/link_to_data.txt).
+All the input datasets used in the paper such as one dimensional and two dimensional gaussian random fields (GRF) - 2D GRF, Warped GRF, Channelized field and Multiple lengthscales GRF etc. to train the deep resnet approximator can be downloaded from link at [/data/link_to_data.txt](https://github.com/PredictiveScienceLab/variational-elliptic-SPDE/blob/master/data/link_to_data.txt).
 
 ### Scripts:
 Keras-tensorflow implementation codes for building a DNN approximator of SPDE solution are at [./scripts](https://github.com/PredictiveScienceLab/variational-elliptic-SPDE/tree/master/scripts).
+
 For a 2D SPDE problem do
 ```
 python 2d_spde.py -train_data='train_channel_nx1=32_nx2=32_num_samples=4096.npy' -test_data='test_channel_nx1=32_nx2=32_num_samples=512.npy' -nx1=32 -nx2=32 -DNN_type='Resnet' -n=300 -num_block=3 -act_func='swish' -loss_type='EF' -lr=0.0001 -max_it=75000 -M_A=100 -M_x=20 -seed=0
